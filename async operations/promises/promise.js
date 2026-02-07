@@ -2,22 +2,37 @@
 // Read book
 // Make bed
 
-function walkDog(thenRead) {
-    setTimeout( () => { console.log("Walked my dog"); thenRead() }, 2000 )
+function walkDog() {
+    
+
+    return new Promise ((resolve, reject) => {
+        setTimeout( () => { 
+            resolve("Walked my dog")
+        }, 2000 )
+    })
+
 };
 
 function readBook(thenBed) {
-    setTimeout( () => { console.log("Read my book"); thenBed() }, 2000 )
+
+    return new Promise((resolve, reject) => {
+        setTimeout( () => { 
+            resolve("Read my book"); 
+         }, 2000 )
+    })
 };
 
 function makeBed(thenDone) {
-    setTimeout( () => { console.log("Made my bed"); thenDone() }, 2000 )
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Made my bed");
+        }, 2000)
+    })
 };
 
-walkDog(() => {
-    readBook(() => {
-        makeBed(() => {
-            console.log("Tasks Completed");
-        })
-    })
-})
+// Method chaining...kinda difficult to understand the structure of it but I get it though
+
+walkDog().then(value => {console.log(value); return readBook()})
+         .then(value => {console.log(value); return makeBed()})
+         .then(value => {console.log(value); console.log("Tasks Completed!")})
