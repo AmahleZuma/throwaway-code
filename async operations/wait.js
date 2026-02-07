@@ -1,7 +1,7 @@
 // This is an example at async functions
 
 function wait(data) {
-    setTimeout(() => {console.log("Hello"); data()}, 2000)
+    setTimeout(() => {console.log("Hello"); data}, 2000)
 };
 
 function something() {
@@ -11,4 +11,4 @@ function something() {
 };
 
 
-wait(something)
+wait(something())
