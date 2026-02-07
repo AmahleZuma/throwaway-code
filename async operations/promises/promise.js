@@ -7,26 +7,49 @@ function walkDog() {
 
     return new Promise ((resolve, reject) => {
         setTimeout( () => { 
-            resolve("Walked my dog")
+            const walkStatus = true;
+
+
+            if (walkStatus) {
+                resolve("Walked my dog");
+            } else {
+                reject("DIDN'T WALK MY DOG");
+            }
+
+
         }, 2000 )
     })
 
 };
 
-function readBook(thenBed) {
+function readBook() {
 
     return new Promise((resolve, reject) => {
         setTimeout( () => { 
-            resolve("Read my book"); 
+            const readStatus = false;
+
+            if (readStatus) {
+                resolve("Read my book");
+            } else {
+                reject("DID NOT READ MY BOOK");
+            }
+
          }, 2000 )
     })
 };
 
-function makeBed(thenDone) {
+function makeBed() {
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve("Made my bed");
+            const makeStatus = false;
+
+
+            if (makeStatus) {
+                resolve("Made my bed");
+            } else{
+                reject("DID NOT MAKE MY BED");
+            }
         }, 2000)
     })
 };
@@ -36,3 +59,4 @@ function makeBed(thenDone) {
 walkDog().then(value => {console.log(value); return readBook()})
          .then(value => {console.log(value); return makeBed()})
          .then(value => {console.log(value); console.log("Tasks Completed!")})
+         .catch(error => console.error(error)) // Catching an error
