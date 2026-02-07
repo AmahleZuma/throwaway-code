@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // expecting one input
+    function sum(x,y,z) {
+        return x + y + z;
+    }
+
+    const numbers = [1,2,3];
+
+
+    // Expected value: 1,2,3undefinedundefined
+    console.log(sum(numbers));
+
+    // Expected value: 6
+    console.log(sum(...numbers))
+
+    // I'm bored
+    console.log(...sum(numbers))
+</script>
+</html>
