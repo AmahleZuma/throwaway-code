@@ -7,7 +7,7 @@ function walkDog() {
 
     return new Promise ((resolve, reject) => {
         setTimeout( () => { 
-            const walkStatus = true;
+            const walkStatus = false;
 
 
             if (walkStatus) {
@@ -57,16 +57,24 @@ function makeBed() {
 // Method chaining...kinda difficult to understand the structure of it but I get it though
 
 async function doChores() {
-    const walkResult = await walkDog();
-    console.log(walkResult);
 
-    const readResult = await readBook();
-    console.log(readResult);
+    try{
 
-    const makeResult = await makeBed();
-    console.log(makeResult)
+        const walkResult = await walkDog();
+        console.log(walkResult);
 
-    console.log("You have finished all tasks")
+        const readResult = await readBook();
+        console.log(readResult);
+
+        const makeResult = await makeBed();
+        console.log(makeResult)
+
+        console.log("You have finished all tasks")
+
+    } catch(error) {
+        console.error(error)
+    }
+
 }
 
 doChores()
