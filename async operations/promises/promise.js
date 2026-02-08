@@ -26,7 +26,7 @@ function readBook() {
 
     return new Promise((resolve, reject) => {
         setTimeout( () => { 
-            const readStatus = false;
+            const readStatus = true;
 
             if (readStatus) {
                 resolve("Read my book");
@@ -42,7 +42,7 @@ function makeBed() {
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const makeStatus = false;
+            const makeStatus = true;
 
 
             if (makeStatus) {
@@ -56,7 +56,17 @@ function makeBed() {
 
 // Method chaining...kinda difficult to understand the structure of it but I get it though
 
-walkDog().then(value => {console.log(value); return readBook()})
-         .then(value => {console.log(value); return makeBed()})
-         .then(value => {console.log(value); console.log("Tasks Completed!")})
-         .catch(error => console.error(error)) // Catching an error
+async function doChores() {
+    const walkResult = await walkDog();
+    console.log(walkResult);
+
+    const readResult = await readBook();
+    console.log(readResult);
+
+    const makeResult = await makeBed();
+    console.log(makeResult)
+
+    console.log("You have finished all tasks")
+}
+
+doChores()
