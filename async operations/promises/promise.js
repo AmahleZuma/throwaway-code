@@ -54,7 +54,7 @@ function makeBed() {
     })
 };
 
-// Method chaining...kinda difficult to understand the structure of it but I get it though
+
 
 async function doChores() {
 
@@ -72,6 +72,7 @@ async function doChores() {
         console.log("You have finished all tasks")
 
     } catch(error) {
+        // catches the error which is the reject response
         console.error(error)
     }
 
