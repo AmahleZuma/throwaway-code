@@ -7,7 +7,7 @@ function walkDog() {
 
     return new Promise ((resolve, reject) => {
         setTimeout( () => { 
-            const walkStatus = false;
+            const walkStatus = true;
 
 
             if (walkStatus) {
@@ -54,6 +54,20 @@ function makeBed() {
     })
 };
 
+function sitUp() {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            const sitUp = true;
+
+            if (sitUp) {
+                resolve("sat up")
+            } else {
+                reject("DIDN'T SIT UP")
+            }
+        }, 1000)
+    })
+};
+
 
 
 async function doChores() {
@@ -68,6 +82,9 @@ async function doChores() {
 
         const makeResult = await makeBed();
         console.log(makeResult)
+
+        const sitResult = await sitUp();
+        console.log(sitResult)
 
         console.log("You have finished all tasks")
 
