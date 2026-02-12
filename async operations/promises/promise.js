@@ -69,6 +69,20 @@ function sitUp() {
 };
 
 
+function runOut() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const run = true;
+
+            if (run) {
+                resolve("took a run")
+            } else {
+                reject("DID NOT RUN")
+            }
+        }, 2500)
+    })
+}
+
 
 async function doChores() {
 
@@ -85,6 +99,9 @@ async function doChores() {
 
         const sitResult = await sitUp();
         console.log(sitResult)
+
+        const runResult = await runUp();
+        console.log(runResult)
 
         console.log("You have finished all tasks")
 
